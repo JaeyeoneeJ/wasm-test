@@ -33,7 +33,7 @@ function App() {
           resultPtr,
           size
         );
-        console.log("jjy c dataArray", dataArray);
+        // console.log("jjy c dataArray", dataArray);
 
         const endTime = performance.now();
         const duringTime = endTime - startTime;
@@ -61,7 +61,7 @@ function App() {
       for (let i = 0; i < size; i++) {
         obj.push(2 * 2 * i);
       }
-      console.log("jjy js dataArray", obj);
+      // console.log("jjy js dataArray", obj);
       const endTime = performance.now();
       const duringTime = endTime - startTime;
       time.push(duringTime);
@@ -88,8 +88,6 @@ function App() {
       <p>c = {cTime}</p>
       <p>js = {jsTime}</p>
       <p>js / c = {jsTime / cTime}</p>
-
-      {/* <div>123 + 234 = {add(123, 234)}</div> */}
     </div>
   );
 }
