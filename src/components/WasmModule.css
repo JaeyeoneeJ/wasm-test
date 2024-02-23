@@ -1,0 +1,17 @@
+.table th {
+  border: 1px solid black;
+  padding: 4px 10px;
+}
+
+.table td {
+  border: 1px solid black;
+  padding: 4px 10px;
+}
+
+.table thead {
+  background-color: bisque;
+}
+
+.table tbody tr td:first-child {
+  font-weight: 600;
+}

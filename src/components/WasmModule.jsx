@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import css from "./WasmModule.css";
 import wasmModuleFile from "../wasm/wasmModule.wasm";
 import createModule from "../wasm/wasmModule.mjs";
 
@@ -133,7 +134,7 @@ const WasmModule = ({
   return (
     <div>
       <h3>JS / WASM Duration time</h3>
-      <table>
+      <table className={"table"}>
         <thead>
           <tr>
             <th>TYPE</th>
