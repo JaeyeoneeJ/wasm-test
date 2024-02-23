@@ -134,20 +134,35 @@ const WasmModule = ({
     <div>
       <h3>JS / WASM Duration time</h3>
       <table>
-        <tr>
-          <th>MODULE</th>
-          <th>VALUE</th>
-        </tr>
-
-        <tr>
-          <td></td>
-        </tr>
+        <thead>
+          <tr>
+            <th>TYPE</th>
+            <th>VALUE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>C to JS</td>
+            <td>{cToJsTime}</td>
+          </tr>
+          <tr>
+            <td>C to WASM</td>
+            <td>{cToWasmTime}</td>
+          </tr>
+          <tr>
+            <td>JS</td>
+            <td>{jsTime}</td>
+          </tr>
+          <tr>
+            <td>JS / C to JS</td>
+            <td>{jsTime / cToJsTime}</td>
+          </tr>
+          <tr>
+            <td>JS / C to WASM</td>
+            <td>{jsTime / cToWasmTime}</td>
+          </tr>
+        </tbody>
       </table>
-      <p>c to JS= {cToJsTime}</p>
-      <p>c to WASM= {cToWasmTime}</p>
-      <p>js = {jsTime}</p>
-      <p>js / c to JS= {jsTime / cToJsTime}</p>
-      <p>js / c to WASM= {jsTime / cToWasmTime}</p>
     </div>
   );
 };
