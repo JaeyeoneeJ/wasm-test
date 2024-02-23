@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
+import wasmModuleFile from "../wasm/wasmModule.wasm";
 
 let wasmModule = null;
 
-export const loadWasmModule = async () => {
+const loadWasmModule = async () => {
   if (!wasmModule) {
     try {
-      // 모듈 로드
       const importObject = {
         wasi_snapshot_preview1: {
           proc_exit: () => {},
@@ -15,7 +15,7 @@ export const loadWasmModule = async () => {
         },
       };
 
-      const response = await fetch("/test.wasm");
+      const response = await fetch(wasmModuleFile);
       console.log("jjy response", response);
       const buffer = await response.arrayBuffer();
       console.log("jjy buffer", buffer);

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import createModule from "../wasm/add.mjs";
+import createModule from "../wasm/wasmModule.mjs";
 
 const size = 100000;
 const timeset = 10;
