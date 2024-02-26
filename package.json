@@ -12,7 +12,7 @@
     "build:react": "react-scripts build",
     "build:wasm-mjs": "emcc --no-entry src/wasm/*.c -o src/wasm/wasmModule.mjs -s ENVIRONMENT='web' -s SINGLE_FILE=1 -s EXPORT_NAME='createModule' -s USE_ES6_IMPORT_META=0 -s EXPORTED_FUNCTIONS='[_add, _array, _malloc, _free]' -s EXPORTED_RUNTIME_METHODS='[ccall, cwrap]' -O3 -s MODULARIZE=1",
     "build:wasm": "emcc --no-entry src/wasm/*.c -o src/wasm/wasmModule.wasm -s ENVIRONMENT='web' -s SINGLE_FILE=1 -s EXPORT_NAME='createModule' -s USE_ES6_IMPORT_META=0 -s EXPORTED_FUNCTIONS='[_add, _array, _malloc, _free]' -s EXPORTED_RUNTIME_METHODS='[ccall, cwrap]' -O3 -s MODULARIZE=1",
-    "build": "npm run build:wasm && npm run build:react"
+    "build": "npm run build:wasm && build:wasm-mjs && npm run build:react"
   },
   "eslintConfig": {
     "extends": [
