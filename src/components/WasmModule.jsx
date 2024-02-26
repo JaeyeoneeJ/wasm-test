@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import css from "./WasmModule.css";
 import wasmModuleFile from "../wasm/wasmModule.wasm";
 import createModule from "../wasm/wasmModule.mjs";
 
@@ -26,7 +25,7 @@ const loadWasmModule = async () => {
 
 const WasmModule = ({
   debug = false,
-  data = { size: 100000, timeset: 20, a: 12, b: 13 },
+  data = { size: 100000, timeset: 20, a: 20, b: 30 },
 }) => {
   const [wasmModule, setWasmModule] = useState();
   const [module, setModule] = useState();
