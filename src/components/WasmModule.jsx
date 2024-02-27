@@ -22,6 +22,9 @@ const loadWasmModule = async () => {
         fd_write: () => {},
         fd_seek: () => {},
       },
+      env: {
+        emscripten_notify_memory_growth: () => {},
+      },
     };
 
     const response = await fetch(wasmModuleFile);
@@ -98,6 +101,7 @@ const WasmModule = ({
       if (time.length > 0) {
         const sum = time.reduce((acc, value) => acc + value, 0);
         const average = sum / time.length;
+        console.log("jjy average", average);
         return average;
       }
     }
