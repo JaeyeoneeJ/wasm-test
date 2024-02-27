@@ -1,6 +1,17 @@
 import React, { useEffect, useMemo, useState } from "react";
+import "./WasmModule.css";
 import wasmModuleFile from "../wasm/wasmModule.wasm";
 import createModule from "../wasm/wasmModule.mjs";
+
+const unitTime = " ms";
+const unitMultiples = " 배";
+const formatNum = (num) => {
+  let convertNum = num;
+  if (typeof convertNum !== "number") {
+    convertNum = Number(num);
+  }
+  return convertNum.toFixed(4);
+};
 
 const loadWasmModule = async () => {
   try {
@@ -143,23 +154,27 @@ const WasmModule = ({
         <tbody>
           <tr>
             <td>C to JS</td>
-            <td>{cToJsTime}</td>
+            <td>{formatNum(cToJsTime) + unitTime}</td>
           </tr>
           <tr>
             <td>C to WASM</td>
-            <td>{cToWasmTime}</td>
+            <td>{formatNum(cToWasmTime) + unitTime}</td>
           </tr>
           <tr>
             <td>JS</td>
-            <td>{jsTime}</td>
+            <td>{formatNum(jsTime) + unitTime}</td>
           </tr>
           <tr>
             <td>JS / C to JS</td>
-            <td>{jsTime / cToJsTime}</td>
+            <td>{formatNum(jsTime / cToJsTime) + unitMultiples}</td>
           </tr>
           <tr>
             <td>JS / C to WASM</td>
-            <td>{jsTime / cToWasmTime}</td>
+            <td>{formatNum(jsTime / cToWasmTime) + unitMultiples}</td>
+          </tr>
+          <tr>
+            <td>C to JS / C to WASM</td>
+            <td>{formatNum(cToJsTime / cToWasmTime) + unitMultiples}</td>
           </tr>
         </tbody>
       </table>
