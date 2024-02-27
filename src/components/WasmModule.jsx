@@ -46,7 +46,7 @@ const WasmModule = ({
   const [arrayFunc, setArrayFunc] = useState();
 
   const cToJsTime = useMemo(() => {
-    if (arrayFunc) {
+    if (module && arrayFunc) {
       const time = [];
       for (let i = 0; i < data.timeset; i++) {
         const startTime = performance.now();
@@ -54,11 +54,12 @@ const WasmModule = ({
         const resultPtr = arrayFunc(data.size, data.a, data.b);
         // console.log("jjy resultPtr c", resultPtr);
         const dataArray = new Int32Array(
-          module?.HEAP32.buffer,
+          module.HEAP32.buffer,
           resultPtr,
           data.size
         );
         debug && console.log("jjy cToJsTime dataArray", dataArray);
+        module._free(resultPtr);
 
         const endTime = performance.now();
         const duringTime = endTime - startTime;
@@ -101,7 +102,6 @@ const WasmModule = ({
       if (time.length > 0) {
         const sum = time.reduce((acc, value) => acc + value, 0);
         const average = sum / time.length;
-        console.log("jjy average", average);
         return average;
       }
     }
